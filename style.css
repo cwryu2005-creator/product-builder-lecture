@@ -1,3 +1,21 @@
+:root {
+  --bg-color: #f4f4f4;
+  --text-color: #333;
+  --container-bg: #fff;
+  --lottery-number-bg: #28a745;
+  --button-bg: #007bff;
+  --button-hover-bg: #0056b3;
+}
+
+body.dark-mode {
+  --bg-color: #333;
+  --text-color: #f4f4f4;
+  --container-bg: #444;
+  --lottery-number-bg: #0056b3;
+  --button-bg: #0056b3;
+  --button-hover-bg: #007bff;
+}
+
 body {
   font-family: Arial, sans-serif;
   display: flex;
@@ -5,24 +23,29 @@ body {
   align-items: center;
   min-height: 100vh;
   margin: 0;
-  background-color: #f4f4f4;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .container {
-  background-color: #fff;
+  background-color: var(--container-bg);
   padding: 30px;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   text-align: center;
+  position: relative;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 h1 {
-  color: #333;
+  color: var(--text-color);
   margin-bottom: 20px;
+  transition: color 0.3s ease;
 }
 
 #generate-btn {
-  background-color: #007bff;
+  background-color: var(--button-bg);
   color: white;
   border: none;
   padding: 12px 24px;
@@ -33,7 +56,7 @@ h1 {
 }
 
 #generate-btn:hover {
-  background-color: #0056b3;
+  background-color: var(--button-hover-bg);
 }
 
 #lottery-numbers {
@@ -45,7 +68,7 @@ h1 {
 }
 
 .lottery-number {
-  background-color: #28a745;
+  background-color: var(--lottery-number-bg);
   color: white;
   font-size: 24px;
   font-weight: bold;
@@ -56,4 +79,26 @@ h1 {
   justify-content: center;
   align-items: center;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s ease;
+}
+
+.theme-toggle {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  z-index: 10;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.theme-toggle:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+body.dark-mode .theme-toggle:hover {
+  background-color: rgba(255, 255, 255, 0.1);
 }

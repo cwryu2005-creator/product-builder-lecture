@@ -11,16 +11,24 @@ This project will transform the existing `index.html` into a lottery number reco
 - A dedicated area to display the recommended lottery numbers.
 - Basic styling for a clean and modern look.
 
+### Dark/Light Mode Features:
+- A toggle button to switch between dark and light modes.
+- Persist user's theme preference using localStorage.
+- Apply appropriate styling for both modes using CSS variables.
+
 ## Current Requested Change Plan
 
-The user wants to create a lottery number recommendation page. This involves:
+The user wants to add dark mode and light mode functionality. This involves:
 
 1.  **Modify `index.html`**:
-    *   Add a `<h1>` for the page title.
-    *   Add a `<button>` with an appropriate ID for interaction.
-    *   Add a `<div>` or `<p>` with an ID to display the generated numbers.
+    *   Add a toggle button (e.g., a checkbox or a button with an icon) for theme switching.
 2.  **Modify `main.js`**:
-    *   Create a function `generateLotteryNumbers()` that generates 6 unique random numbers between 1 and 45.
-    *   Attach an event listener to the button to call `generateLotteryNumbers()` and update the display area in `index.html`.
+    *   Implement JavaScript logic to:
+        *   Detect system theme preference.
+        *   Load saved theme preference from `localStorage`.
+        *   Toggle a class (e.g., `dark-mode`) on the `body` element based on user interaction and saved preference.
+        *   Save the current theme preference to `localStorage`.
 3.  **Modify `style.css`**:
-    *   Add styles for the body, container, button, and the number display area to ensure a visually appealing layout.
+    *   Define CSS variables for colors (e.g., `--bg-color`, `--text-color`, `--container-bg`).
+    *   Apply these variables in the general styles.
+    *   Create a `.dark-mode` class that overrides these CSS variables to dark theme values.
